@@ -6,7 +6,9 @@ Are you tired of seeing this message on some YouTube videos?
 
 Then look no further. This extension can automatically proceed to the video - no more clicking necessary.
 
-Note: it does not let you bypass the age verification check. It only works if you are already signed in, i.e. only for the message above.
+Note: it does not let you bypass the age verification check. It only works if you are already signed in, i.e. only for the message above. 
+
+The extension currently only works if YouTube's language is set to English.
 
 ### Installation
 The easiest way is to install directly from the Chrome Web Store (TODO: link).
