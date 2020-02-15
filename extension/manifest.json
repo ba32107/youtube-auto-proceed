@@ -1,0 +1,42 @@
+{
+  "name": "YouTube Auto-Proceed to Video",
+  "version": "1.0",
+  "description": "Automatically skip YouTube's \"This video may be inappropriate for some users\" check",
+  "manifest_version": 2,
+  "permissions": [
+    "contextMenus",
+    "declarativeContent",
+    "tabs"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_title": "YouTube Auto-Proceed to Video",
+    "default_icon": {
+      "16": "images/icons/16.png",
+      "32": "images/icons/32.png",
+      "48": "images/icons/48.png",
+      "128": "images/icons/128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "images/icons/16.png",
+    "32": "images/icons/32.png",
+    "48": "images/icons/48.png",
+    "128": "images/icons/128.png"
+  }
+}
