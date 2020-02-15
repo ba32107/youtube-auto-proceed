@@ -1,3 +1,9 @@
+[<img src="https://img.shields.io/chrome-web-store/v/xxxx">](https://chrome.google.com/webstore/category/extensions)
+[<img src="https://img.shields.io/chrome-web-store/users/xxxx">](https://chrome.google.com/webstore/category/extensions)
+[<img src="https://img.shields.io/chrome-web-store/stars/xxxx">](https://chrome.google.com/webstore/category/extensions)
+[<img src="https://img.shields.io/maintenance/yes/2020">](https://github.com/ba32107/youtube-auto-proceed)
+[<img src="https://img.shields.io/github/license/ba32107/youtube-auto-proceed">](https://github.com/ba32107/youtube-auto-proceed/blob/master/LICENSE)
+
 # YouTube Auto-Proceed to Video
 
 Are you tired of seeing this message on some YouTube videos?
