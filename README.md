@@ -1,6 +1,6 @@
-[<img src="https://img.shields.io/chrome-web-store/v/lmjcoecpdenpmdoieiiendpoohgmabmd">](#)
-[<img src="https://img.shields.io/chrome-web-store/users/lmjcoecpdenpmdoieiiendpoohgmabmd">](#)
-[<img src="https://img.shields.io/chrome-web-store/stars/lmjcoecpdenpmdoieiiendpoohgmabmd">](#)
+[<img src="https://img.shields.io/chrome-web-store/v/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
+[<img src="https://img.shields.io/chrome-web-store/users/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
+[<img src="https://img.shields.io/chrome-web-store/stars/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 [<img src="https://img.shields.io/maintenance/yes/2020">](#)
 [<img src="https://img.shields.io/github/license/ba32107/youtube-auto-proceed">](#)
 
