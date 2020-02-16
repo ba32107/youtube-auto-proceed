@@ -16,12 +16,12 @@ chrome.runtime.onInstalled.addListener(function () {
     title: "Get Help / Send Feedback",
     contexts: ["page_action"]
   });
+});
 
-  chrome.contextMenus.onClicked.addListener(function () {
-    chrome.tabs.create({
-      active: true,
-      url: "https://github.com/ba32107/youtube-auto-proceed"
-    });
+chrome.contextMenus.onClicked.addListener(function () {
+  chrome.tabs.create({
+    active: true,
+    url: "https://github.com/ba32107/youtube-auto-proceed"
   });
 });
 
