@@ -1,9 +1,11 @@
 
-if (hasInappropriateCheck()) {
-    chrome.runtime.sendMessage({ action: "proceed" });
+function checkAndProceedIfInappropriateMessageIsPresent() {
+    if (hasInappropriateMessage()) {
+        chrome.runtime.sendMessage({ action: "proceed" });
+    }
 }
 
-function hasInappropriateCheck() {
+function hasInappropriateMessage() {
     const proceedButtonText = "I understand and wish to proceed";
     let errorRootNode = document.getElementById("error-screen");
 
@@ -27,3 +29,24 @@ function findNodeWithTextRecursively(parentNode, text) {
         }
     }
 }
+
+const observer = new MutationObserver(function (mutations) {
+    for (let i = 0; i < mutations.length; i++) {
+        let mut = mutations[i];
+        if (mut.type === "attributes" && mut.attributeName === "hidden") {
+            checkAndProceedIfInappropriateMessageIsPresent();
+        }
+    }
+});
+
+setTimeout(function () {
+    const targetNodes = document.getElementsByTagName("yt-page-navigation-progress");
+
+    for (let i = 0; i < targetNodes.length; i++) {
+        observer.observe(targetNodes[i], {
+            attributes: true
+        });
+    }
+}, 3000);
+
+checkAndProceedIfInappropriateMessageIsPresent();
