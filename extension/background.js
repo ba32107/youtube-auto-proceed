@@ -25,12 +25,20 @@ chrome.contextMenus.onClicked.addListener(function () {
   });
 });
 
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+  setTimeout(function () {
+    getCurrentTab(function (currentTab) {
+      if (currentTab && currentTab.url && currentTab.url.match(".*:\/\/.*\.youtube\.com\/.*")) {
+        chrome.tabs.sendMessage(currentTab.id, { action: "performCheck" });
+      }
+    });
+  }, 1000);
+});
+
 chrome.runtime.onMessage.addListener(function (request) {
   if (request && request.action === "proceed") {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      let currentTab = tabs[0];
+    getCurrentTab(function (currentTab) {
       let newUrl = getVerifiedUrl(currentTab.url);
-
       redirect(currentTab, newUrl);
     });
   }
@@ -67,4 +75,11 @@ function getVerifiedUrl(currentUrl) {
 
 function redirect(tab, newUrl) {
   chrome.tabs.update(tab.id, { url: newUrl });
+}
+
+function getCurrentTab(callback) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    let currentTab = tabs[0];
+    callback(currentTab);
+  });
 }

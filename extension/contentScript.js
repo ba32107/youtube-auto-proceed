@@ -1,5 +1,11 @@
 
-function checkAndProceedIfInappropriateMessageIsPresent() {
+chrome.runtime.onMessage.addListener(function (request) {
+    if (request && request.action === "performCheck") {
+        performCheck();
+    }
+});
+
+function performCheck() {
     if (hasInappropriateMessage()) {
         chrome.runtime.sendMessage({ action: "proceed" });
     }
@@ -34,7 +40,7 @@ const observer = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
         let mut = mutations[i];
         if (mut.type === "attributes" && mut.attributeName === "hidden") {
-            checkAndProceedIfInappropriateMessageIsPresent();
+            performCheck();
         }
     }
 });
@@ -49,4 +55,4 @@ setTimeout(function () {
     }
 }, 3000);
 
-checkAndProceedIfInappropriateMessageIsPresent();
+performCheck();
