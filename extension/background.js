@@ -13,15 +13,25 @@ chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.removeAll();
   chrome.contextMenus.create({
     id: "openGitHubPageMenuItem",
-    title: "Get Help / Send Feedback",
+    title: "Help / Send Feedback",
+    contexts: ["page_action"]
+  });
+  chrome.contextMenus.create({
+    id: "versionMenuItem",
+    title: "Version " + chrome.runtime.getManifest().version,
     contexts: ["page_action"]
   });
 });
 
-chrome.contextMenus.onClicked.addListener(function () {
+chrome.contextMenus.onClicked.addListener(function (info) {
+  let url = "https://github.com/ba32107/youtube-auto-proceed";
+  if (info.menuItemId === "versionMenuItem") {
+    url += "/releases/tag/v" + chrome.runtime.getManifest().version;
+  }
+
   chrome.tabs.create({
     active: true,
-    url: "https://github.com/ba32107/youtube-auto-proceed"
+    url: url
   });
 });
 
