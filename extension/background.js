@@ -35,7 +35,7 @@ chrome.contextMenus.onClicked.addListener(function (info) {
   });
 });
 
-chrome.tabs.onActivated.addListener(function (activeInfo) {
+chrome.tabs.onActivated.addListener(function () {
   setTimeout(function () {
     getCurrentTab(function (currentTab) {
       if (currentTab && currentTab.url && currentTab.url.match(".*:\/\/.*\.youtube\.com\/.*")) {
@@ -48,39 +48,16 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 chrome.runtime.onMessage.addListener(function (request) {
   if (request && request.action === "proceed") {
     getCurrentTab(function (currentTab) {
-      let newUrl = getVerifiedUrl(currentTab.url);
+      let newUrl = setUrlParameterValue(currentTab.url, "has_verified", "1");
+      newUrl = setUrlParameterValue(newUrl, "bpctr", "9999999999");
       redirect(currentTab, newUrl);
     });
   }
 });
 
-function getVerifiedUrl(currentUrl) {
-  const verifiedParam = "&has_verified=";
-  let indexOfVerifiedParam = currentUrl.indexOf(verifiedParam);
-
-  if (indexOfVerifiedParam > 0) {
-    let urlWithoutVerifiedParam = currentUrl.substring(0, indexOfVerifiedParam);
-    var remainingUrl = currentUrl.substring(indexOfVerifiedParam + verifiedParam.length);
-
-    let indexOfNextParam = remainingUrl.indexOf("&");
-    var valueOfVerifiedParam;
-
-    if (indexOfNextParam > 0) {
-      valueOfVerifiedParam = remainingUrl.substring(0, indexOfNextParam);
-      remainingUrl = remainingUrl.substring(indexOfNextParam);
-    } else {
-      valueOfVerifiedParam = remainingUrl;
-      remainingUrl = "";
-    }
-
-    if (valueOfVerifiedParam === 1) {
-      return currentUrl;
-    }
-
-    return urlWithoutVerifiedParam + verifiedParam + "1" + remainingUrl;
-  }
-
-  return currentUrl + verifiedParam + "1";
+function setUrlParameterValue(url, urlParamName, newValue) {
+    const urlWithoutTheseParams = url.replace(new RegExp(`&${urlParamName}=[^&]+`, "ig"), "");
+    return `${urlWithoutTheseParams}&${urlParamName}=${newValue}`;
 }
 
 function redirect(tab, newUrl) {
