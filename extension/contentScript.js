@@ -1,4 +1,3 @@
-
 chrome.runtime.onMessage.addListener(function (request) {
     if (request && request.action === "performCheck") {
         performCheck();
