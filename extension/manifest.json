@@ -1,7 +1,7 @@
 {
   "name": "YouTube Auto-Proceed to Video",
   "short_name": "YouTubeAutoProceed",
-  "version": "1.4",
+  "version": "1.5",
   "description": "Automatically skip YouTube's \"This video may be inappropriate for some users\" check",
   "manifest_version": 2,
   "permissions": [
