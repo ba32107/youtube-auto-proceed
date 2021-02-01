@@ -23,8 +23,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
     });
 
     if (details.reason === "update") {
-        const updatePageUrl = chrome.runtime.getURL("updated.html");
-        chrome.tabs.create({ url: updatePageUrl });
+        chrome.management.getSelf(function(extensionInfo) {
+            if (extensionInfo.installType !== "development") {
+                const updatePageUrl = chrome.runtime.getURL("updated.html");
+                chrome.tabs.create({ url: updatePageUrl });
+            }
+        });
     }
 });
 
