@@ -17,6 +17,11 @@ jobs:
         cd ./extension
         zip -r ../dist/extension.zip *
         cd ..
-    - name: Check built extension
-      run: |
-        ls -l ./dist
+    - name: Upload extension
+      uses: mnao305/chrome-extension-upload@1.1.1
+      with:
+        file-path: dist/extension.zip
+        extension-id: lmjcoecpdenpmdoieiiendpoohgmabmd
+        client-id: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
+        client-secret: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
+        refresh-token: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
