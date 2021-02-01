@@ -1,0 +1,22 @@
+name: Publish extension
+
+on:
+  push:
+    tags:
+      - 'v'
+
+jobs:
+  build-publish-extension:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: Build extension
+      run: |
+        mkdir dist
+        cd ./extension
+        zip -r ../dist/extension.zip *
+        cd ..
+    - name: Check built extension
+      run: |
+        ls -l ./dist
