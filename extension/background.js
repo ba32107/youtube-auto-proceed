@@ -1,5 +1,5 @@
 
-chrome.runtime.onInstalled.addListener(function () {
+chrome.runtime.onInstalled.addListener(function (details) {
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
         chrome.declarativeContent.onPageChanged.addRules([{
             conditions: [new chrome.declarativeContent.PageStateMatcher({
@@ -21,6 +21,15 @@ chrome.runtime.onInstalled.addListener(function () {
         title: "Version " + chrome.runtime.getManifest().version,
         contexts: ["page_action"]
     });
+
+    if (details.reason === "update") {
+        chrome.management.getSelf(function(extensionInfo) {
+            if (extensionInfo.installType !== "development") {
+                const updatePageUrl = chrome.runtime.getURL("updated.html");
+                chrome.tabs.create({ url: updatePageUrl });
+            }
+        });
+    }
 });
 
 chrome.contextMenus.onClicked.addListener(function (info) {
