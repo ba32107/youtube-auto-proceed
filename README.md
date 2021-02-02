@@ -1,8 +1,8 @@
+# YouTube Auto-Proceed to Video
 [<img src="https://img.shields.io/chrome-web-store/v/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 [<img src="https://img.shields.io/chrome-web-store/users/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 [<img src="https://img.shields.io/chrome-web-store/stars/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 
-# YouTube Auto-Proceed to Video
 [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/tbyBjqi7Zu733AAKA5n4.png">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 
 Are you tired of seeing this message on some YouTube videos?
