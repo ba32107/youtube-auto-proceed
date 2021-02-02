@@ -31,7 +31,7 @@ The project is licensed under the [MIT License](https://github.com/ba32107/youtu
 
 ### Donating
 
-This extension is - and always will be - free. Developing open source software takes time and effort - if you'd like to support my work, please consider donating. It means more than you might think! Thank you very much.
+**This extension is - and always will be - free.** Developing open source software takes time and effort - if you'd like to support my work, please consider donating. It means more than you might think! Thank you very much.
 
  * PayPal: https://www.paypal.com/donate?hosted_button_id=8E2GR6WXHNY48
  * Buy Me A Coffee: https://www.buymeacoffee.com/ba32107
