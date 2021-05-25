@@ -1,0 +1,34 @@
+{
+  "name": "youtube-auto-proceed",
+  "version": "1.5.0",
+  "description": "YouTube Auto-Proceed to Video",
+  "private": true,
+  "scripts": {
+    "lint": "npx eslint src/js",
+    "postinstall": "run-script-os",
+    "postinstall:nix": "./postinstall.sh",
+    "postinstall:windows": "postinstall.bat"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ba32107/youtube-auto-proceed.git"
+  },
+  "keywords": [
+    "youtube",
+    "age-check",
+    "auto-proceed"
+  ],
+  "author": "Balazs Gyurak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ba32107/youtube-auto-proceed/issues/new"
+  },
+  "homepage": "https://github.com/ba32107/youtube-auto-proceed",
+  "dependencies": {
+    "webextension-polyfill": "^0.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-plugin-no-unsanitized": "^3.1.5"
+  }
+}
