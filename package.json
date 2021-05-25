@@ -4,10 +4,8 @@
   "description": "YouTube Auto-Proceed to Video",
   "private": true,
   "scripts": {
-    "lint": "npx eslint src/js",
-    "postinstall": "run-script-os",
-    "postinstall:nix": "./postinstall.sh",
-    "postinstall:windows": "postinstall.bat"
+    "lint": "npx eslint ./extension",
+    "postinstall": "cp node_modules/webextension-polyfill/dist/*.min.js* extension/libs"
   },
   "repository": {
     "type": "git",
