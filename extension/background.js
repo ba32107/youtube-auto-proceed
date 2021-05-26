@@ -51,7 +51,7 @@ browser.runtime.onMessage.addListener(async request => {
 function performCheck() {
     setTimeout(async () => {
         const currentTab = await getCurrentTabAsync();
-        if (currentTab && currentTab.url && currentTab.url.match(".*:\/\/.*\.youtube\.com\/.*")) {
+        if (currentTab && currentTab.url && currentTab.url.match(".*:\/\/.*\.youtube\.com\/.*")) {  // eslint-disable-line no-useless-escape
             const maxRetryCount = 5;
             let retryCount = 0;
 
