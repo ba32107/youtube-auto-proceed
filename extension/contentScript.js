@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(function (request) {
+browser.runtime.onMessage.addListener(request => {
     if (request && request.action === "performCheck") {
         performCheck();
     }
@@ -6,13 +6,13 @@ chrome.runtime.onMessage.addListener(function (request) {
 
 function performCheck() {
     if (hasInappropriateMessage()) {
-        chrome.runtime.sendMessage({ action: "proceed" });
+        browser.runtime.sendMessage({ action: "proceed" });
     }
 }
 
 function hasInappropriateMessage() {
     const proceedButtonText = "I understand and wish to proceed";
-    let errorRootNode = document.getElementById("error-screen");
+    const errorRootNode = document.getElementById("error-screen");
 
     return findNodeWithTextRecursively(errorRootNode, proceedButtonText);
 }
@@ -27,7 +27,7 @@ function findNodeWithTextRecursively(parentNode, text) {
     }
 
     for (let i = 0; i < parentNode.children.length; i++) {
-        let child = parentNode.children[i];
+        const child = parentNode.children[i];
 
         if (findNodeWithTextRecursively(child, text)) {
             return child;
@@ -35,9 +35,9 @@ function findNodeWithTextRecursively(parentNode, text) {
     }
 }
 
-const observer = new MutationObserver(function (mutations) {
+const observer = new MutationObserver(mutations => {
     for (let i = 0; i < mutations.length; i++) {
-        let mut = mutations[i];
+        const mut = mutations[i];
         if (mut.type === "attributes" && mut.attributeName === "hidden") {
             performCheck();
         }
