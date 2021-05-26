@@ -59,7 +59,7 @@ function performCheck() {
                 try {
                     await browser.tabs.sendMessage(currentTab.id, { action: "performCheck" });
                     return;
-                }catch (ex) {
+                } catch (ignore) {
                     await sleepAsync(500 + retryCount * 200);
                     retryCount++;
                 }
