@@ -1,89 +1,87 @@
-
-chrome.runtime.onInstalled.addListener(function (details) {
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-        chrome.declarativeContent.onPageChanged.addRules([{
-            conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: { hostContains: 'youtube.com' },
-            })
-            ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-        }]);
-    });
-
-    chrome.contextMenus.removeAll();
-    chrome.contextMenus.create({
+browser.runtime.onInstalled.addListener(async details => {
+    browser.contextMenus.removeAll();
+    browser.contextMenus.create({
         id: "openGitHubPageMenuItem",
         title: "Help / Send Feedback",
         contexts: ["page_action"]
     });
-    chrome.contextMenus.create({
+    browser.contextMenus.create({
         id: "versionMenuItem",
-        title: "Version " + chrome.runtime.getManifest().version,
+        title: "Version " + browser.runtime.getManifest().version,
         contexts: ["page_action"]
     });
 
     if (details.reason === "update") {
-        chrome.management.getSelf(function(extensionInfo) {
-            if (extensionInfo.installType !== "development") {
-                const updatePageUrl = chrome.runtime.getURL("updated.html");
-                chrome.tabs.create({ url: updatePageUrl });
-            }
-        });
+        const extensionInfo = await browser.management.getSelf();
+        if (extensionInfo.installType !== "development") {
+            await browser.tabs.create({ url: browser.runtime.getURL("updated.html") });
+        }
     }
 });
 
-chrome.contextMenus.onClicked.addListener(function (info) {
+browser.contextMenus.onClicked.addListener(async info => {
     let url = "https://github.com/ba32107/youtube-auto-proceed";
     if (info.menuItemId === "versionMenuItem") {
-        url += "/releases/tag/v" + chrome.runtime.getManifest().version;
+        url += "/releases/tag/v" + browser.runtime.getManifest().version;
     }
 
-    chrome.tabs.create({
+    await browser.tabs.create({
         active: true,
         url: url
     });
 });
 
-chrome.tabs.onActivated.addListener(function () {
+browser.tabs.onActivated.addListener(() => {
     performCheck();
 });
 
-chrome.tabs.onUpdated.addListener(function () {
+browser.tabs.onUpdated.addListener(() => {
     performCheck();
+});
+
+browser.runtime.onMessage.addListener(async request => {
+    if (request && request.action === "proceed") {
+        const currentTab = await getCurrentTabAsync();
+        let newUrl = setUrlParameterValue(currentTab.url, "has_verified", "1");
+        newUrl = setUrlParameterValue(newUrl, "bpctr", "9999999999");
+        await redirectAsync(currentTab, newUrl);
+    }
 });
 
 function performCheck() {
-    setTimeout(function () {
-        getCurrentTab(function (currentTab) {
-            if (currentTab && currentTab.url && currentTab.url.match(".*:\/\/.*\.youtube\.com\/.*")) {
-                chrome.tabs.sendMessage(currentTab.id, { action: "performCheck" });
-            }
-        });
-    }, 1000);
-}
+    setTimeout(async () => {
+        const currentTab = await getCurrentTabAsync();
+        if (currentTab && currentTab.url && currentTab.url.match(".*:\/\/.*\.youtube\.com\/.*")) {  // eslint-disable-line no-useless-escape
+            const maxRetryCount = 5;
+            let retryCount = 0;
 
-chrome.runtime.onMessage.addListener(function (request) {
-    if (request && request.action === "proceed") {
-        getCurrentTab(function (currentTab) {
-            let newUrl = setUrlParameterValue(currentTab.url, "has_verified", "1");
-            newUrl = setUrlParameterValue(newUrl, "bpctr", "9999999999");
-            redirect(currentTab, newUrl);
-        });
-    }
-});
+            while (retryCount <= maxRetryCount) {
+                try {
+                    await browser.tabs.sendMessage(currentTab.id, { action: "performCheck" });
+                    return;
+                } catch (ignore) {
+                    await sleepAsync(500 + retryCount * 200);
+                    retryCount++;
+                }
+            }
+        }
+    }, 2000);
+}
 
 function setUrlParameterValue(url, urlParamName, newValue) {
     const urlWithoutTheseParams = url.replace(new RegExp(`&${urlParamName}=[^&]+`, "ig"), "");
     return `${urlWithoutTheseParams}&${urlParamName}=${newValue}`;
 }
 
-function redirect(tab, newUrl) {
-    chrome.tabs.update(tab.id, { url: newUrl });
+async function redirectAsync(tab, newUrl) {
+    await browser.tabs.update(tab.id, { url: newUrl });
 }
 
-function getCurrentTab(callback) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        let currentTab = tabs[0];
-        callback(currentTab);
-    });
+async function getCurrentTabAsync() {
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+    return tabs[0];
+}
+
+async function sleepAsync(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
