@@ -6,14 +6,13 @@
   "manifest_version": 2,
   "permissions": [
     "contextMenus",
-    "declarativeContent",
     "tabs"
   ],
   "background": {
     "page": "background.html",
     "persistent": false
   },
-  "page_action": {
+  "browser_action": {
     "default_title": "YouTube Auto-Proceed to Video",
     "default_icon": {
       "16": "images/icons/16.png",

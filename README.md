@@ -16,9 +16,9 @@ Note: it does not let you bypass the age verification check. It only works if yo
 The extension currently only works if YouTube's language is set to English.
 
 ### Installation
-The easiest way is to install directly from the [Chrome Web Store](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd).
+The easiest way is to install directly from the [Chrome Web Store](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd) or from Firefox Add-ons.
 
-Alternatively, you can install the extension manually from this repository:
+Alternatively, for Chrome, you can install the extension manually from this repository:
  * Clone this repo or [download the code](https://github.com/ba32107/youtube-auto-proceed/archive/master.zip) and unzip it
  * Go to the Extensions page in Chrome (`chrome://extensions/`) and enable Developer mode in the upper right corner
  * Click `Load unpacked` and browse the `extension` directory from this repo
