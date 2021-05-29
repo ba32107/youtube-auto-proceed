@@ -3,7 +3,13 @@
 [<img src="https://img.shields.io/chrome-web-store/users/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 [<img src="https://img.shields.io/chrome-web-store/stars/lmjcoecpdenpmdoieiiendpoohgmabmd">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 
+[<img src="https://img.shields.io/amo/v/youtube-auto-proceed-to-video">](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/)
+[<img src="https://img.shields.io/amo/users/youtube-auto-proceed-to-video">](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/)
+[<img src="https://img.shields.io/amo/stars/youtube-auto-proceed-to-video">](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/)
+
 [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/tbyBjqi7Zu733AAKA5n4.png">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
+
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" width="140">](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/)
 
 Are you tired of seeing this message on some YouTube videos?
 
@@ -16,7 +22,7 @@ Note: it does not let you bypass the age verification check. It only works if yo
 The extension currently only works if YouTube's language is set to English.
 
 ### Installation
-The easiest way is to install directly from the [Chrome Web Store](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd) or from Firefox Add-ons.
+The easiest way is to install directly from the [Chrome Web Store](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd) or from [Firefox Add-ons](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/).
 
 Alternatively, for Chrome, you can install the extension manually from this repository:
  * Clone this repo or [download the code](https://github.com/ba32107/youtube-auto-proceed/archive/master.zip) and unzip it
