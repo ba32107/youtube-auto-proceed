@@ -7,7 +7,7 @@
 [<img src="https://img.shields.io/amo/users/youtube-auto-proceed-to-video">](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/)
 [<img src="https://img.shields.io/amo/stars/youtube-auto-proceed-to-video">](https://addons.mozilla.org/en-GB/firefox/addon/youtube-auto-proceed-to-video/)
 
-> :warning: This extension has been decommissioned. I do not get this warning anymore on any video so I work on it anymore.
+> :warning: This extension has been decommissioned. I do not get this warning anymore on any video so I cannot work on it anymore.
 
 [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/tbyBjqi7Zu733AAKA5n4.png">](https://chrome.google.com/webstore/detail/youtube-auto-proceed-to-v/lmjcoecpdenpmdoieiiendpoohgmabmd)
 
